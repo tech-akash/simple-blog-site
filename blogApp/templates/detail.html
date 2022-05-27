@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+<div class="jumbotron jumbotron-fluid banner">
+    <div class="container">
+        <h1 class="display-4 child">{{obj.blog_title}}</h1>
+        <p> {{ obj.timeStamp|time }} {{ obj.timeStamp|date }} </p>
+    </div>
+    <img src="{{obj.blog_image.url}}" style="width: 40rem; height: 30rem;" class="img-fluid rounded child"
+        alt="Responsive image">
+    <p class="lead">{{obj.blogContent|safe}}</p>
+    <a href="{% url 'update' obj.id%}">
+        <button class="btn btn-warning">Edit Blog</button>
+    </a>
+    <a href="{% url 'delete' obj.id%}">
+        <button class="btn btn-danger">Delete Blog</button>
+    </a>
+</div>
+
+
+
+{%endblock%}
